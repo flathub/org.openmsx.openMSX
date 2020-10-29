@@ -23,10 +23,14 @@ command in a terminal:
 flatpak install flathub org.openmsx.openMSX -y
 ```
 
-Once the Flatpak is installed, you can run openMSX or the Catapult launcher
-using your desktop environment's application launcher or by running
+Once the Flatpak is installed, there will be icons for both openMSX and the Catapult launcher
+which you can simply start using your desktop environment's application launcher.
+
+Or alternatively by typing:
+
 `flatpak run org.openmsx.openMSX` in a terminal to run openMSX or
-`flatpak run org.openmsx.openMSX openmsx-catapult` to run Catapult.
+
+`flatpak run --command=openmsx-catapult org.openmsx.openMSX` to run Catapult.
 
 Note: by default the openMSX emulator only ships with the C-BIOS open-source
 BIOS implementation. This BIOS is restricted to cartridge based MSX games. For
