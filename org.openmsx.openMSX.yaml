@@ -10,6 +10,7 @@ finish-args: # flatpak permissions
   - --share=ipc  # needed for X11
   - --share=network # needed for networking
   - --socket=x11
+  - --socket=wayland
   - --socket=pulseaudio
   - --filesystem=home
 
