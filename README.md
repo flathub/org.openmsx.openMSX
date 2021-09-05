@@ -51,7 +51,6 @@ flatpak update
 - For security reasons, this Flatpak is sandboxed and only has access to the
   user's Home folder. You should place any files you need within openMSX in
   that folder (or in a subfolder).
-- On Wayland, openMSX will run via XWayland. This is due to SDL2 not supporting client-side-decorations (see https://bugzilla.libsdl.org/show_bug.cgi?id=5194). This will be a limitation until a new SDL2 version is released with these patches, and this new SDL2 version is available in flatpak.
 
 Please [create an issue](https://github.com/flathub/org.openmsx.openMSX/issues/new) if you find any other limitations specific to flatpak that
 should be documented here.
