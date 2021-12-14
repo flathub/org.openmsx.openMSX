@@ -34,7 +34,7 @@ modules:
     sources: 
       - type: git
         url: https://github.com/tcltk/tcl
-        tag: core-8-6-11
+        tag: core-8-6-12
     subdir: unix
     build-options:
       no-debuginfo: true
