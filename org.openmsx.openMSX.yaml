@@ -32,9 +32,14 @@ modules:
 # Build TCL
   - name: tcl
     sources: 
-      - type: git
-        url: https://github.com/tcltk/tcl
-        tag: core-8-6-12
+      - type: archive
+        url: https://prdownloads.sourceforge.net/tcl/tcl8.6.12-src.tar.gz
+        sha256: 26c995dd0f167e48b11961d891ee555f680c175f7173ff8cb829f4ebcde4c1a6
+    x-checker-data:
+          type: anitya
+          project-id: 4941
+          stable-only: true
+          url-template: https://prdownloads.sourceforge.net/tcl/tcl$version-src.tar.gz
     subdir: unix
     build-options:
       no-debuginfo: true
@@ -85,6 +90,11 @@ modules:
       - type: git
         url: https://github.com/wxWidgets/wxWidgets
         tag: v3.1.5
+    x-checker-data:
+          type: anitya
+          project-id: 5150
+          stable-only: true
+          tag-template: v$version
     build-options:
       cxxflags:
         -std=c++0x
@@ -115,6 +125,11 @@ modules:
         commands:
           - cp -p /usr/share/automake-*/config.{sub,guess} "build-aux"/;
           - autoreconf -vfi;
+    x-checker-data:
+          type: anitya
+          project-id: 1360
+          stable-only: true
+          url-template: https://savannah.nongnu.org/download/icoutils/icoutils-$version.tar.bz2
     cleanup: ['*']
 
 # Build openMSX Catapult launcher
