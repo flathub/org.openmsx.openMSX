@@ -52,7 +52,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/openMSX/openMSX
-        tag: RELEASE_17_0
+        tag: RELEASE_18_0
       - type: file
         path: org.openmsx.openMSX.desktop
       - type: file
@@ -89,7 +89,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/wxWidgets/wxWidgets
-        tag: v3.1.5
+        tag: v3.1.7
     x-checker-data:
           type: anitya
           project-id: 5150
@@ -136,8 +136,8 @@ modules:
   - name: catapult
     sources:
       - type: archive
-        url: https://github.com/openMSX/openMSX/releases/download/RELEASE_17_0/openmsx-catapult-17.0.tar.gz
-        sha256: e8b53765292b9692e4047247ee2726236c2eab7d9a9e5338bc316542501df871
+        url: https://github.com/openMSX/openMSX/releases/download/RELEASE_18_0/openmsx-catapult-18.0.tar.gz
+        sha256: 2503bd761e05e5ddefc93261e091bb37a4b36228230b01d7741f16911a22c371
       - type: file
         path: org.openmsx.openMSX.Catapult.desktop
       - type: shell
