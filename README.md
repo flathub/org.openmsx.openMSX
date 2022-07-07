@@ -6,7 +6,7 @@ a single standard in home computing similar to VHS in video.
 
 The MSX standard was designed by ASCII Corporation in Japan, in cooperation
 with Microsoft Japan. The later of which provided the extended BASIC
-(called "MicroSoft eXtended BASIC") for the machine.
+for the machine.
 
 In addition to emulating MSX, MSX2, MSX2+, MSX Turbo R and many of it's
 peripherals, openMSX also supports emulating the ColecoVision and Sega SG-1000
