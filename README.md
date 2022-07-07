@@ -1,17 +1,16 @@
 # Flatpak for openMSX
 
-openMSX is an emulator for the MSX home computer system. MSX is an old
-Z80-based family of home computers as an attempt to establish
+openMSX is an emulator for the MSX home computer system. MSX was a standard for
+Z80-based home computers, and was a (largely) Japanese attempt to establish
 a single standard in home computing similar to VHS in video.
 
-The MSX standard has been designed by a company called ASCII in cooperation
-with Microsoft which has provided a firmware version of its extended BASIC
-(called "MicroSoft eXtended BASIC") for the machine, which explains the
-MSX name.
+The MSX standard was designed by ASCII Corporation in Japan, in cooperation
+with Microsoft Japan. The later of which provided the extended BASIC
+(called "MicroSoft eXtended BASIC") for the machine.
 
 In addition to emulating MSX, MSX2, MSX2+, MSX Turbo R and many of it's
-peripherals, openMSX also supports emulating the ColecoVision game console
-and the SpectraVideo SVI-318 and SVI-328 home computer systems.
+peripherals, openMSX also supports emulating the ColecoVision and Sega SG-1000
+game consoles and the SpectraVideo SVI-318 and SVI-328 home computer systems.
 
 ## Installation
 
@@ -50,7 +49,8 @@ flatpak update
 
 - For security reasons, this Flatpak is sandboxed and only has access to the
   user's Home folder. You should place any files you need within openMSX in
-  that folder (or in a subfolder).
+  that folder (or in a subfolder). You can optionally further restrict or
+  widen access using [flatseal](https://flathub.org/apps/details/com.github.tchx84.Flatseal).
 
 Please [create an issue](https://github.com/flathub/org.openmsx.openMSX/issues/new) if you find any other limitations specific to flatpak that
 should be documented here.
@@ -61,7 +61,7 @@ For general assistance with openMSX, visit [openmsx.org](https://openmsx.org).
 openMSX does not follow the freedesktop.org XDG Base Directory Specification.
 
 User config files will be created under ~/.openMSX and ~/.Catapult after first launch.
-To access it with a graphical file manager, you'll have to make hidden folders visible.
+To access it with a graphical file manager, you may have to make hidden folders visible.
 
 ## Building from source
 
