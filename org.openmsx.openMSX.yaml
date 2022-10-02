@@ -64,6 +64,7 @@ modules:
           - ln -s /usr/bin/libpng-config /app/bin/libpng-config
           - ln -s /usr/bin/sdl2-config /app/bin/sdl2-config
           - ln -s /usr/bin/pkg-config /app/bin/pkg-config
+          - ln -s /usr/include/SDL2 /app/include/SDL2
     build-options:
         env:
           - TCL_CONFIG=/app/lib
