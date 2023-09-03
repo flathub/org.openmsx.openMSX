@@ -52,7 +52,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/openMSX/openMSX
-        tag: RELEASE_19_0
+        tag: RELEASE_19_1
       - type: file
         path: org.openmsx.openMSX.desktop
       - type: file
