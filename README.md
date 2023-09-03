@@ -70,7 +70,7 @@ Install Git, follow the [flatpak-builder setup guide](https://docs.flatpak.org/e
 ```bash
 git clone --recursive https://github.com/flathub/org.openmsx.openMSX.git
 cd org.openmsx.openMSX
-flatpak install flathub org.freedesktop.Sdk//21.08 -y
+flatpak install --user flathub org.freedesktop.Sdk//22.08 -y
 flatpak-builder --force-clean --install --user -y builddir org.openmsx.openMSX.yaml
 ```
 
