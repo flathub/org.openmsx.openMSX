@@ -7,7 +7,7 @@ fi
 
 clear
 
-runtime=$(grep runtime-version org.openmsx.openMSX.yaml|awk '{print $2}')
+runtime=$(grep runtime-version org.openmsx.openMSX.yaml|awk '{print $2}'|tr -d "'")
 flatpak --user install flathub org.freedesktop.Sdk//${runtime} -y
 
 if ! flatpak-builder --repo=testing-repo --force-clean build-dir org.openmsx.openMSX.yaml;
