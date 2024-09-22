@@ -22,7 +22,7 @@ command in a terminal:
 flatpak install flathub org.openmsx.openMSX -y
 ```
 
-Once the Flatpak is installed, there will be an icon for the openMSX launcher
+Once the Flatpak is installed, there will be an icon to launch openMSX
 which you can simply start using your desktop environment's application launcher.
 
 Or alternatively by typing:
