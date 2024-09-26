@@ -52,7 +52,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/openMSX/openMSX
-        tag: RELEASE_19_1
+        tag: RELEASE_20_0
       - type: file
         path: org.openmsx.openMSX.desktop
       - type: file
@@ -85,35 +85,6 @@ modules:
       - /app/bin/pkg-config
       - /app/bin/sdl2-config
 
-# Build wxWidgets (needed for Catapult)
-  - name: wxwidgets
-    sources:
-      - type: git
-        url: https://github.com/wxWidgets/wxWidgets
-        tag: v3.2.2.1
-    x-checker-data:
-          type: anitya
-          project-id: 5150
-          stable-only: true
-          tag-template: v$version
-    build-options:
-      cxxflags:
-        -std=c++0x
-    config-opts:
-      - --with-opengl
-      - --with-libjpeg
-      - --with-expat
-      - --with-libtiff
-      - --with-libpng
-      - --with-zlib
-      - --disable-sdltest
-      - --enable-unicode
-      - --enable-display
-      - --enable-propgrid
-      - --disable-webview
-      - --disable-webviewwebkit
-      - --with-libiconv=/usr
-
 # Build icoutils
   - name: icoutils
     config-opts:
@@ -133,31 +104,3 @@ modules:
           url-template: https://savannah.nongnu.org/download/icoutils/icoutils-$version.tar.bz2
     cleanup: ['*']
 
-# Build openMSX Catapult launcher
-  - name: catapult
-    sources:
-      - type: archive
-        url: https://github.com/openMSX/openMSX/releases/download/RELEASE_19_0/openmsx-catapult-19.0.tar.gz
-        sha256: fdee4772fd91326b82c17202b2751da3f0deba7da66df7caca1b8b2a28f130ac
-      - type: file
-        path: org.openmsx.openMSX.Catapult.desktop
-      - type: shell
-        commands:
-          - sed -i 's/^INSTALL_BASE.*/INSTALL_BASE:=\/app\/share\/'${FLATPAK_ID}'.Catapult/' build/custom.mk
-          - sed -i 's/^CATAPULT_OPENMSX_BINARY.*/CATAPULT_OPENMSX_BINARY:=\/app\/bin\/openmsx/' build/custom.mk
-          - sed -i 's/^CATAPULT_OPENMSX_SHARE.*/CATAPULT_OPENMSX_SHARE:=\/app\/share\/'${FLATPAK_ID}'/' build/custom.mk
-    buildsystem: simple
-    build-commands:
-      - make
-      - make install
-    post-install:
-      - install -Dm755 /app/share/org.openmsx.openMSX.Catapult/bin/catapult /app/bin/openmsx-catapult
-      - install -Dm644 org.openmsx.openMSX.Catapult.desktop /app/share/applications/${FLATPAK_ID}.Catapult.desktop
-      - mkdir icons ; icotool -x -b 32 -o icons src/catapult.ico
-      - install -Dm644 icons/catapult_14_16x16x32.png /app/share/icons/hicolor/16x16/apps/${FLATPAK_ID}.Catapult.png
-      - install -Dm644 icons/catapult_3_32x32x32.png /app/share/icons/hicolor/32x32/apps/${FLATPAK_ID}.Catapult.png
-      - install -Dm644 icons/catapult_4_48x48x32.png /app/share/icons/hicolor/48x48/apps/${FLATPAK_ID}.Catapult.png
-      - install -Dm644 icons/catapult_6_64x64x32.png /app/share/icons/hicolor/64x64/apps/${FLATPAK_ID}.Catapult.png
-      - install -Dm644 icons/catapult_1_128x128x32.png /app/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.Catapult.png
-    cleanup:
-      - /app/share/org.openmsx.openMSX.Catapult/bin

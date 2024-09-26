@@ -22,14 +22,12 @@ command in a terminal:
 flatpak install flathub org.openmsx.openMSX -y
 ```
 
-Once the Flatpak is installed, there will be icons for both openMSX and the Catapult launcher
+Once the Flatpak is installed, there will be an icon to launch openMSX
 which you can simply start using your desktop environment's application launcher.
 
 Or alternatively by typing:
 
-`flatpak run org.openmsx.openMSX` in a terminal to run openMSX or
-
-`flatpak run --command=openmsx-catapult org.openmsx.openMSX` to run Catapult.
+`flatpak run org.openmsx.openMSX` in a terminal to run openMSX
 
 Note: by default the openMSX emulator only ships with the C-BIOS open-source
 BIOS implementation. This BIOS is restricted to cartridge based MSX games. For
@@ -60,7 +58,7 @@ For general assistance with openMSX, visit [openmsx.org](https://openmsx.org).
 
 openMSX does not follow the freedesktop.org XDG Base Directory Specification.
 
-User config files will be created under ~/.openMSX and ~/.Catapult after first launch.
+User config files will be created under ~/.openMSX after first launch.
 To access it with a graphical file manager, you may have to make hidden folders visible.
 
 ## Building from source
@@ -70,7 +68,7 @@ Install Git, follow the [flatpak-builder setup guide](https://docs.flatpak.org/e
 ```bash
 git clone --recursive https://github.com/flathub/org.openmsx.openMSX.git
 cd org.openmsx.openMSX
-flatpak install --user flathub org.freedesktop.Sdk//22.08 -y
+flatpak install --user flathub org.freedesktop.Sdk//23.08 -y
 flatpak-builder --force-clean --install --user -y builddir org.openmsx.openMSX.yaml
 ```
 
