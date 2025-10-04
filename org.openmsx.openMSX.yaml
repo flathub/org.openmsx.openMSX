@@ -25,16 +25,18 @@ cleanup:
 
 modules:
 
-# Build Mesa GLU and GLEW
+# Build Mesa GLU, GLEW and SDL2_ttf
   - shared-modules/glu/glu-9.json
   - shared-modules/glew/glew.json
+  # - shared-modules/SDL2/SDL2_ttf.json
 
 # Build TCL
   - name: tcl
+    buildsystem: autotools
     sources: 
       - type: archive
-        url: https://prdownloads.sourceforge.net/tcl/tcl8.6.13-src.tar.gz
-        sha256: 43a1fae7412f61ff11de2cfd05d28cfc3a73762f354a417c62370a54e2caf066
+        url: https://prdownloads.sourceforge.net/tcl/tcl9.0.0-src.tar.gz
+        sha256: 3bfda6dbaee8e9b1eeacc1511b4e18a07a91dff82d9954cdb9c729d8bca4bbb7
     x-checker-data:
           type: anitya
           project-id: 4941
@@ -43,6 +45,8 @@ modules:
     subdir: unix
     build-options:
       no-debuginfo: true
+    post-install:
+      - chmod 755 ${FLATPAK_DEST}/lib/libtcl*.so
     cleanup:
       - /bin
       - /man
@@ -52,7 +56,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/openMSX/openMSX
-        tag: RELEASE_20_0
+        tag: RELEASE_21_0
       - type: file
         path: org.openmsx.openMSX.desktop
       - type: file
