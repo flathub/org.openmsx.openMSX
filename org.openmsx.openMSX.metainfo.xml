@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2001-2020 openMSX team -->
+<!-- Copyright 2001-2025 openMSX team -->
 <component type="desktop">
 	<id>org.openmsx.openMSX</id>
 	<metadata_license>CC0-1.0</metadata_license>
@@ -7,7 +7,11 @@
 	<name>openMSX</name>
 	<summary>Emulate all aspects of the MSX with high accuracy</summary>
 	<launchable type="desktop-id">org.openmsx.openMSX.desktop</launchable>
+	<developer id="org.openmsx">
+		<name>openMSX team</name>
+	</developer>
 	<releases>
+		<release version="21.0" date="2025-09-26"/>
 		<release version="20.0" date="2024-09-22"/>
 		<release version="19.1" date="2023-08-30"/>
 		<release version="19.0" date="2023-07-25"/>
@@ -68,7 +72,6 @@
 			<caption>Team Bomba - Underwater demo</caption>
 		</screenshot>
 	</screenshots>
-	<developer_name>openMSX team</developer_name>
 	<content_rating type="oars-1.1"/>
 	<update_contact>noreply@openmsx.org</update_contact>
 	<recommends>
