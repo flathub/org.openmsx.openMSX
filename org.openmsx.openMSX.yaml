@@ -28,7 +28,7 @@ modules:
 # Build Mesa GLU, GLEW and SDL2_ttf
   - shared-modules/glu/glu-9.json
   - shared-modules/glew/glew.json
-  # - shared-modules/SDL2/SDL2_ttf.json
+  - shared-modules/SDL2/SDL2_ttf.json
 
 # Build TCL
   - name: tcl
