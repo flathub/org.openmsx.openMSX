@@ -1,6 +1,6 @@
 app-id: org.openmsx.openMSX
 runtime: org.freedesktop.Platform
-runtime-version: '25.08'
+runtime-version: '26.08'
 sdk: org.freedesktop.Sdk
 
 command: openmsx
@@ -35,8 +35,8 @@ modules:
     buildsystem: autotools
     sources: 
       - type: archive
-        url: https://prdownloads.sourceforge.net/tcl/tcl9.0.2-src.tar.gz
-        sha256: e074c6a8d9ba2cddf914ba97b6677a552d7a52a3ca102924389a05ccb249b520
+        url: https://sf-eu-introserv-1.dl.sourceforge.net/project/tcl/Tcl/9.0.4/tcl9.0.4-src.tar.gz
+        sha256: d0aed49230bc02a65c1e0229e65f34590a4b037ec40d546f32573b467f7551ea
     x-checker-data:
           type: anitya
           project-id: 4941
@@ -45,6 +45,9 @@ modules:
     subdir: unix
     build-options:
       no-debuginfo: true
+      env:
+        TCLSH_NATIVE: /run/build/tcl/unix/tclsh
+        LD_LIBRARY_PATH: /run/build/tcl/unix
     post-install:
       - chmod 755 ${FLATPAK_DEST}/lib/libtcl*.so
     cleanup:
@@ -63,21 +66,19 @@ modules:
         path: org.openmsx.openMSX.metainfo.xml
       - type: shell
         commands:
+          # openmsx build scripts hard-code the path to many files...
           - sed -i 's/^INSTALL_BASE.*/INSTALL_BASE:=\/app\/share\/'${FLATPAK_ID}'/' build/custom.mk
           - sed -i "s/distroRoot = thirdPartyInstall or None/distroRoot = '\/app'/" build/probe.py
-          # openmsx build scripts hard-code the path to many files...
+          # for these it is earlier to just create symlinks.
           - ln -s /usr/bin/libpng-config /app/bin/libpng-config
           - ln -s /usr/bin/sdl2-config /app/bin/sdl2-config
           - ln -s /usr/bin/pkg-config /app/bin/pkg-config
           - ln -s /usr/include/SDL2 /app/include/SDL2
+          # for some reason it is looking in the wrong location for the header file...
           - ln -s SDL2/SDL_ttf.h /app/include/SDL_ttf.h
     build-options:
-        #cxxflags: -I/app/include/SDL2
         env:
           - TCL_CONFIG=/app/lib
-    #build-commands:
-    #  - CXXFLAGS="${CXXFLAGS:+$CXXFLAGS }-I/app/include/SDL2" make
-    #  - make install
     post-install:
       - install -Dm755 /app/share/${FLATPAK_ID}/bin/openmsx /app/bin
       - install -Dm644 org.openmsx.openMSX.desktop /app/share/applications/${FLATPAK_ID}.desktop
